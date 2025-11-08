@@ -1,6 +1,10 @@
+const YOUTUBE_URL = "https://www.youtube.com/@TemporadaK";
+const SPOTIFY_URL =
+  "https://open.spotify.com/show/6RMEec8rzNUEFgkblpAHN8?si=e488fe4e63684b89";
+
 const CTA_LINKS = [
-  { href: "#youtube", label: "Ver episodios" },
-  { href: "#spotify", label: "Escuchar en Spotify" },
+  { href: YOUTUBE_URL, label: "Ver en YouTube", isExternal: true },
+  { href: SPOTIFY_URL, label: "Escuchar en Spotify", isExternal: true },
   { href: "#newsletter", label: "Unirme a la comunidad" },
 ];
 
@@ -24,10 +28,11 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
-          {CTA_LINKS.map(({ href, label }) => (
+          {CTA_LINKS.map(({ href, label, isExternal }) => (
             <a
               key={href}
               href={href}
+              {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
               className="inline-flex items-center rounded-full border border-zinc-700 bg-zinc-900/60 px-6 py-2 text-sm font-medium text-white transition hover:border-[#FFD54F] hover:bg-[#FFD54F]/20 hover:text-[#FFD54F]"
             >
               {label}
