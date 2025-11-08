@@ -5,15 +5,15 @@ import { useState } from "react";
 type Props = {
   title?: string;
   subtitle?: string;
-  actionUrl?: string; // opcional: endpoint de suscripción
+  actionUrl?: string;
 };
 
 export default function Newsletter({ title, subtitle, actionUrl }: Props) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
 
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (!email) return;
 
     if (!actionUrl) {
@@ -28,6 +28,7 @@ export default function Newsletter({ title, subtitle, actionUrl }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
+
       if (res.ok) {
         setStatus("ok");
         setEmail("");
@@ -40,43 +41,38 @@ export default function Newsletter({ title, subtitle, actionUrl }: Props) {
   };
 
   return (
-    <div className="mx-auto max-w-3xl">
-      {title ? (
-        <h2 className="mb-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-          {title}
-        </h2>
-      ) : null}
-      {subtitle ? (
-        <p className="mb-6 text-zinc-600 dark:text-zinc-400">{subtitle}</p>
-      ) : null}
+    <div className="rounded-3xl border border-zinc-800 bg-zinc-950/80 p-8 shadow-[0_0_40px_rgba(255,213,79,0.06)] sm:p-12">
+      <div className="mb-6 space-y-2">
+        <h2 className="text-3xl font-semibold text-white">{title ?? "Newsletter semanal"}</h2>
+        <p className="text-sm text-zinc-400">
+          {subtitle ?? "Recibe los aprendizajes clave, recursos descargables y próximos eventos."}
+        </p>
+      </div>
 
       <form onSubmit={onSubmit} className="flex flex-col gap-3 sm:flex-row">
         <input
           type="email"
           required
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(event) => setEmail(event.target.value)}
           placeholder="tu@email.com"
-          className="w-full rounded-lg border border-zinc-300 bg-white/70 px-4 py-3 text-base text-zinc-900 placeholder-zinc-400 shadow-sm outline-none backdrop-blur transition focus:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-950/60 dark:text-zinc-100 dark:placeholder-zinc-500"
+          className="w-full rounded-full border border-zinc-700 bg-zinc-900/60 px-5 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-[#FFD54F] focus:outline-none"
         />
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-lg bg-zinc-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+          className="rounded-full bg-[#FFD54F] px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:bg-[#ffca1b] disabled:opacity-60"
+          disabled={status === "ok"}
         >
           Suscribirme
         </button>
       </form>
+
       {status === "ok" && (
-        <p className="mt-3 text-sm text-emerald-600 dark:text-emerald-400">
-          ¡Gracias! Revisa tu correo para confirmar la suscripción.
-        </p>
+        <p className="mt-4 text-sm text-[#FFD54F]">¡Gracias! Revisa tu correo para confirmar la suscripción.</p>
       )}
       {status === "error" && (
-        <p className="mt-3 text-sm text-rose-600 dark:text-rose-400">
-          Hubo un problema. Inténtalo de nuevo más tarde.
-        </p>
+        <p className="mt-4 text-sm text-rose-400">Hubo un problema. Inténtalo de nuevo más tarde.</p>
       )}
     </div>
   );
 }
-
