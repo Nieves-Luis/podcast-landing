@@ -11,10 +11,15 @@ const NAV_LINKS = [
   { href: "#contact", label: "Contacto" },
 ];
 
+const YOUTUBE_URL = "https://www.youtube.com/@TemporadaK";
+const SPOTIFY_URL =
+  "https://open.spotify.com/show/6RMEec8rzNUEFgkblpAHN8?si=e488fe4e63684b89";
+const INSTAGRAM_URL = "https://www.instagram.com/temporada.k/";
+
 const SOCIAL_LINKS = [
-  { href: "https://open.spotify.com", label: "Spotify" },
-  { href: "https://youtube.com", label: "YouTube" },
-  { href: "https://instagram.com", label: "Instagram" },
+  { href: SPOTIFY_URL, label: "Spotify" },
+  { href: YOUTUBE_URL, label: "YouTube" },
+  { href: INSTAGRAM_URL, label: "Instagram" },
 ];
 
 export default function Home() {
@@ -68,7 +73,7 @@ export default function Home() {
           </section>
 
           <section id="contact" className="scroll-mt-32">
-            <Contact />
+            <Contact instagram={INSTAGRAM_URL} />
           </section>
         </main>
 
