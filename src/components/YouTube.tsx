@@ -3,16 +3,18 @@ const DEFAULT_MESSAGE = "Añade un video o playlist para mostrar tus episodios."
 type Props = {
   title?: string;
   description?: string;
+  embedUrl?: string;
   videoId?: string;
   playlistId?: string;
 };
 
-export default function YouTube({ title, description, videoId, playlistId }: Props) {
-  const src = playlistId
+export default function YouTube({ title, description, embedUrl, videoId, playlistId }: Props) {
+  const src = embedUrl
+    ?? (playlistId
     ? `https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(playlistId)}`
     : videoId
       ? `https://www.youtube.com/embed/${encodeURIComponent(videoId)}`
-      : "";
+      : "");
 
   return (
     <div className="rounded-3xl border border-zinc-800 bg-zinc-900/40 p-8 shadow-inner shadow-black/40 sm:p-12">
@@ -30,6 +32,8 @@ export default function YouTube({ title, description, videoId, playlistId }: Pro
             src={src}
             title="Temporada K en YouTube"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            frameBorder="0"
             allowFullScreen
           />
         </div>

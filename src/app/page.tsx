@@ -25,6 +25,7 @@ const SOCIAL_LINKS = [
 export default function Home() {
   const YOUTUBE_VIDEO_ID = "";
   const YOUTUBE_PLAYLIST_ID = "";
+  const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/7QMws0Va0bY?si=BaPYjge7BY7kc04t";
   const SPOTIFY_SHOW_ID = "";
   const SPOTIFY_EPISODE_ID = "";
 
@@ -56,6 +57,7 @@ export default function Home() {
 
           <section id="youtube" className="scroll-mt-32">
             <YouTube
+              embedUrl={YOUTUBE_EMBED_URL}
               playlistId={YOUTUBE_PLAYLIST_ID}
               videoId={YOUTUBE_VIDEO_ID}
             />
