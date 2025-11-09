@@ -26,6 +26,8 @@ export default function Home() {
   const YOUTUBE_VIDEO_ID = "";
   const YOUTUBE_PLAYLIST_ID = "";
   const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/7QMws0Va0bY?si=BaPYjge7BY7kc04t";
+  const SPOTIFY_EMBED_URL =
+    "https://open.spotify.com/embed/show/6RMEec8rzNUEFgkblpAHN8/video?utm_source=generator";
   const SPOTIFY_SHOW_ID = "";
   const SPOTIFY_EPISODE_ID = "";
 
@@ -65,6 +67,7 @@ export default function Home() {
 
           <section id="spotify" className="scroll-mt-32">
             <Spotify
+              embedUrl={SPOTIFY_EMBED_URL}
               showId={SPOTIFY_SHOW_ID}
               episodeId={SPOTIFY_EPISODE_ID}
             />
