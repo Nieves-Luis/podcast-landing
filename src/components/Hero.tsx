@@ -1,11 +1,24 @@
 const YOUTUBE_URL = "https://www.youtube.com/@TemporadaK";
 const SPOTIFY_URL =
-  "https://open.spotify.com/show/6RMEec8rzNUEFgkblpAHN8?si=e488fe4e63684b89";
+  "https://open.spotify.com/show/6RMEec8rzNUEFgkblpAHN8?si=f1e833a062264334";
+const INSTAGRAM_URL = "https://www.instagram.com/temporada.k/";
 
 const CTA_LINKS = [
-  { href: YOUTUBE_URL, label: "Ver en YouTube", isExternal: true },
-  { href: SPOTIFY_URL, label: "Escuchar en Spotify", isExternal: true },
-  { href: "#newsletter", label: "Unirme a la comunidad" },
+  {
+    href: YOUTUBE_URL,
+    label: "Ver en YouTube",
+    ariaLabel: "Abrir el canal de YouTube de Temporada K en una nueva pestaña",
+  },
+  {
+    href: SPOTIFY_URL,
+    label: "Escuchar en Spotify",
+    ariaLabel: "Abrir el podcast Temporada K en Spotify en una nueva pestaña",
+  },
+  {
+    href: INSTAGRAM_URL,
+    label: "Instagram",
+    ariaLabel: "Abrir la cuenta de Instagram de Temporada K en una nueva pestaña",
+  },
 ];
 
 export default function Hero() {
@@ -28,11 +41,13 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
-          {CTA_LINKS.map(({ href, label, isExternal }) => (
+          {CTA_LINKS.map(({ href, label, ariaLabel }) => (
             <a
               key={href}
               href={href}
-              {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={ariaLabel}
               className="inline-flex items-center rounded-full border border-zinc-700 bg-zinc-900/60 px-6 py-2 text-sm font-medium text-white transition hover:border-[#FFD54F] hover:bg-[#FFD54F]/20 hover:text-[#FFD54F]"
             >
               {label}
