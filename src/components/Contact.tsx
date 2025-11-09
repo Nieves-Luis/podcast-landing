@@ -1,63 +1,73 @@
-type Props = {
+export type ContactProps = {
   email?: string;
-  twitter?: string; // username sin @ o URL completa
-  instagram?: string; // username sin @ o URL completa
+  twitter?: string;
+  instagram?: string;
 };
 
-export default function Contact({ email, twitter, instagram }: Props) {
-  const twitterUrl = twitter
-    ? twitter.startsWith("http")
-      ? twitter
-      : `https://x.com/${twitter.replace(/^@/, "")}`
-    : "";
-  const instagramUrl = instagram
-    ? instagram.startsWith("http")
-      ? instagram
-      : `https://instagram.com/${instagram.replace(/^@/, "")}`
-    : "";
+export default function Contact({ email, twitter, instagram }: ContactProps) {
+  const formatUrl = (value: string | undefined, type: "twitter" | "instagram") => {
+    if (!value) return "";
+    if (value.startsWith("http")) return value;
+
+    const handle = value.replace(/^@/, "");
+    if (type === "twitter") {
+      return `https://x.com/${handle}`;
+    }
+    return `https://instagram.com/${handle}`;
+  };
+
+  const twitterUrl = formatUrl(twitter, "twitter");
+  const instagramUrl = formatUrl(instagram, "instagram");
 
   return (
-    <div className="mx-auto max-w-3xl">
-      <h2 className="mb-2 text-2xl font-semibold tracking-tight sm:text-3xl">Contacto</h2>
-      <p className="mb-6 text-zinc-600 dark:text-zinc-400">
-        ¿Tienes feedback, ideas o quieres colaborar? Escríbenos.
-      </p>
+    <div className="rounded-3xl border border-zinc-800 bg-zinc-900/40 p-8 shadow-inner shadow-black/40 sm:p-12">
+      <header className="mb-6 space-y-2">
+        <h2 className="text-3xl font-semibold text-white">Contacto</h2>
+        <p className="text-sm text-zinc-400">
+          ¿Tienes feedback, quieres ser invitado o proponer una colaboración? Escríbenos por cualquiera de estos canales.
+        </p>
+      </header>
 
-      <ul className="grid gap-3 sm:grid-cols-2">
-        <li className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
-          <span className="block text-sm text-zinc-500 dark:text-zinc-400">Email</span>
-          {email ? (
-            <a className="font-medium underline decoration-zinc-300 underline-offset-4" href={`mailto:${email}`}>
-              {email}
-            </a>
-          ) : (
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">Añade un email</span>
-          )}
-        </li>
+      <dl className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-[#FFD54F]">Email</dt>
+          <dd className="mt-2 text-sm text-zinc-200">
+            {email ? (
+              <a className="underline decoration-[#FFD54F]/40 underline-offset-4" href={`mailto:${email}`}>
+                {email}
+              </a>
+            ) : (
+              <span className="text-zinc-500">Añade un correo para recibir mensajes.</span>
+            )}
+          </dd>
+        </div>
 
-        <li className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
-          <span className="block text-sm text-zinc-500 dark:text-zinc-400">Twitter / X</span>
-          {twitterUrl ? (
-            <a className="font-medium underline decoration-zinc-300 underline-offset-4" href={twitterUrl} target="_blank" rel="noreferrer">
-              {twitterUrl}
-            </a>
-          ) : (
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">Añade un usuario o URL</span>
-          )}
-        </li>
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-[#FFD54F]">Twitter / X</dt>
+          <dd className="mt-2 text-sm text-zinc-200">
+            {twitterUrl ? (
+              <a className="underline decoration-[#FFD54F]/40 underline-offset-4" href={twitterUrl} target="_blank" rel="noreferrer">
+                {twitterUrl}
+              </a>
+            ) : (
+              <span className="text-zinc-500">Comparte tu usuario o enlace.</span>
+            )}
+          </dd>
+        </div>
 
-        <li className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800 sm:col-span-2">
-          <span className="block text-sm text-zinc-500 dark:text-zinc-400">Instagram</span>
-          {instagramUrl ? (
-            <a className="font-medium underline decoration-zinc-300 underline-offset-4" href={instagramUrl} target="_blank" rel="noreferrer">
-              {instagramUrl}
-            </a>
-          ) : (
-            <span className="font-medium text-zinc-700 dark:text-zinc-300">Añade un usuario o URL</span>
-          )}
-        </li>
-      </ul>
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 sm:col-span-2">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-[#FFD54F]">Instagram</dt>
+          <dd className="mt-2 text-sm text-zinc-200">
+            {instagramUrl ? (
+              <a className="underline decoration-[#FFD54F]/40 underline-offset-4" href={instagramUrl} target="_blank" rel="noreferrer">
+                {instagramUrl}
+              </a>
+            ) : (
+              <span className="text-zinc-500">Comparte tu usuario o enlace.</span>
+            )}
+          </dd>
+        </div>
+      </dl>
     </div>
   );
 }
-
