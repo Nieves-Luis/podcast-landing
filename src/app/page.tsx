@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import YouTube from "@/components/YouTube";
 import Spotify from "@/components/Spotify";
@@ -36,23 +37,7 @@ export default function Home() {
       <div className="absolute inset-x-0 top-0 -z-10 h-[600px] bg-[radial-gradient(circle_at_top,_rgba(255,213,79,0.12),_transparent_60%)]" />
 
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-24 px-6 pb-12 pt-10 sm:px-10">
-        <header className="flex items-center justify-between gap-6 rounded-full border border-zinc-800 bg-zinc-950/70 px-6 py-4 backdrop-blur">
-          <span className="text-sm font-semibold tracking-[0.4em] text-[#FFD54F]">TEMPORADA K</span>
-          <nav>
-            <ul className="flex flex-wrap items-center gap-4 text-sm text-zinc-300">
-              {NAV_LINKS.map(({ href, label }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    className="rounded-full px-4 py-2 transition hover:bg-[#FFD54F]/10 hover:text-[#FFD54F]"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </header>
+        <Header links={NAV_LINKS} />
 
         <main className="flex flex-col gap-24 pb-12">
           <Hero />
