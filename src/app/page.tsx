@@ -33,8 +33,9 @@ export default function Home() {
   const SPOTIFY_EPISODE_ID = "";
 
   return (
-    <div className="min-h-screen bg-[#07070A] text-zinc-100">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[600px] bg-[radial-gradient(circle_at_top,_rgba(255,213,79,0.12),_transparent_60%)]" />
+    <div className="relative min-h-screen text-zinc-100">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[600px] bg-[radial-gradient(circle_at_top,_rgba(255,213,79,0.12),_transparent_60%)]"
+      />
 
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-24 px-6 pb-12 pt-10 sm:px-10">
         <Header links={NAV_LINKS} />
