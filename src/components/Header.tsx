@@ -24,7 +24,7 @@ export default function Header({ links }: HeaderProps) {
   };
 
   return (
-    <header className="relative flex items-center justify-between gap-6 rounded-full border border-zinc-800 bg-zinc-950/70 px-6 py-4 backdrop-blur">
+    <header className="relative z-50 flex items-center justify-between gap-6 rounded-full border border-zinc-800 bg-zinc-950/70 px-6 py-4 backdrop-blur">
       <div className="relative h-10 w-24 sm:w-28 md:w-36">
         <Image
           src="/img/logo-temporada-k.png"
