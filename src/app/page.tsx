@@ -81,7 +81,7 @@ export default function Home() {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="transition hover:text-[#FFD54F]"
+                    className="transition hover:text-[#95D31F]"
                   >
                     {label}
                   </a>

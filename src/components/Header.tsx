@@ -24,7 +24,7 @@ export default function Header({ links }: HeaderProps) {
 
   return (
     <header className="relative flex items-center justify-between gap-6 rounded-full border border-zinc-800 bg-zinc-950/70 px-6 py-4 backdrop-blur">
-      <span className="text-sm font-semibold tracking-[0.4em] text-[#FFD54F]">TEMPORADA K</span>
+      <span className="text-sm font-semibold tracking-[0.4em] text-[#95D31F]">TEMPORADA K</span>
 
       <nav className="hidden md:block">
         <ul className="flex flex-wrap items-center gap-4 text-sm text-zinc-300">
@@ -32,7 +32,7 @@ export default function Header({ links }: HeaderProps) {
             <li key={href}>
               <a
                 href={href}
-                className="rounded-full px-4 py-2 transition hover:bg-[#FFD54F]/10 hover:text-[#FFD54F]"
+                className="rounded-full px-4 py-2 transition hover:bg-[#95D31F]/10 hover:text-[#95D31F]"
               >
                 {label}
               </a>
@@ -46,7 +46,7 @@ export default function Header({ links }: HeaderProps) {
         aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={isMenuOpen}
         onClick={handleToggleMenu}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-200 transition hover:border-[#FFD54F] hover:text-[#FFD54F] md:hidden"
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-200 transition hover:border-[#95D31F] hover:text-[#95D31F] md:hidden"
       >
         {isMenuOpen ? (
           <svg
@@ -81,7 +81,7 @@ export default function Header({ links }: HeaderProps) {
                 <li key={href}>
                   <a
                     href={href}
-                    className="block rounded-2xl px-4 py-2 transition hover:bg-[#FFD54F]/10 hover:text-[#FFD54F]"
+                    className="block rounded-2xl px-4 py-2 transition hover:bg-[#95D31F]/10 hover:text-[#95D31F]"
                     onClick={handleLinkClick}
                   >
                     {label}
