@@ -30,10 +30,10 @@ export default function Contact({ email, twitter, instagram }: ContactProps) {
 
       <dl className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5">
-          <dt className="text-xs font-semibold uppercase tracking-wide text-[#FFD54F]">Email</dt>
+          <dt className="text-xs font-semibold uppercase tracking-wide text-[#95D31F]">Email</dt>
           <dd className="mt-2 text-sm text-zinc-200">
             {email ? (
-              <a className="underline decoration-[#FFD54F]/40 underline-offset-4" href={`mailto:${email}`}>
+              <a className="underline decoration-[#95D31F]/40 underline-offset-4" href={`mailto:${email}`}>
                 {email}
               </a>
             ) : (
@@ -43,10 +43,10 @@ export default function Contact({ email, twitter, instagram }: ContactProps) {
         </div>
 
         <div className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5">
-          <dt className="text-xs font-semibold uppercase tracking-wide text-[#FFD54F]">Twitter / X</dt>
+          <dt className="text-xs font-semibold uppercase tracking-wide text-[#95D31F]">Twitter / X</dt>
           <dd className="mt-2 text-sm text-zinc-200">
             {twitterUrl ? (
-              <a className="underline decoration-[#FFD54F]/40 underline-offset-4" href={twitterUrl} target="_blank" rel="noreferrer">
+              <a className="underline decoration-[#95D31F]/40 underline-offset-4" href={twitterUrl} target="_blank" rel="noreferrer">
                 {twitterUrl}
               </a>
             ) : (
@@ -56,10 +56,10 @@ export default function Contact({ email, twitter, instagram }: ContactProps) {
         </div>
 
         <div className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 sm:col-span-2">
-          <dt className="text-xs font-semibold uppercase tracking-wide text-[#FFD54F]">Instagram</dt>
+          <dt className="text-xs font-semibold uppercase tracking-wide text-[#95D31F]">Instagram</dt>
           <dd className="mt-2 text-sm text-zinc-200">
             {instagramUrl ? (
-              <a className="underline decoration-[#FFD54F]/40 underline-offset-4" href={instagramUrl} target="_blank" rel="noreferrer">
+              <a className="underline decoration-[#95D31F]/40 underline-offset-4" href={instagramUrl} target="_blank" rel="noreferrer">
                 {instagramUrl}
               </a>
             ) : (

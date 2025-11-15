@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Temporada K",
-  description: "Landing del podcast Temporada K: conversaciones, aprendizajes y energía para la semana.",
+  description:
+    "Landing del podcast Temporada K: conversaciones, aprendizajes y energía para la semana.",
 };
 
 export default function RootLayout({
@@ -23,11 +24,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-zinc-100`}
       >
-        {children}
+        <div
+          className="min-h-screen bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/img/background.webp')" }}
+        >
+          {/* overlay oscuro para que todo sea legible */}
+          <div className="min-h-screen">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
