@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type NavLink = {
@@ -24,7 +25,16 @@ export default function Header({ links }: HeaderProps) {
 
   return (
     <header className="relative flex items-center justify-between gap-6 rounded-full border border-zinc-800 bg-zinc-950/70 px-6 py-4 backdrop-blur">
-      <span className="text-sm font-semibold tracking-[0.4em] text-[#95D31F]">TEMPORADA K</span>
+      <div className="relative h-10 w-24 sm:w-28 md:w-36">
+        <Image
+          src="/img/logo-temporada-k.png"
+          alt="Temporada K"
+          fill
+          priority
+          sizes="(min-width: 768px) 9rem, (min-width: 640px) 7rem, 6rem"
+          className="object-contain"
+        />
+      </div>
 
       <nav className="hidden md:block">
         <ul className="flex flex-wrap items-center gap-4 text-sm text-zinc-300">

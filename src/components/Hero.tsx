@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const YOUTUBE_URL = "https://www.youtube.com/@TemporadaK";
 const SPOTIFY_URL =
   "https://open.spotify.com/show/6RMEec8rzNUEFgkblpAHN8?si=f1e833a062264334";
@@ -33,7 +35,17 @@ export default function Hero() {
       <div className="relative mx-auto max-w-3xl space-y-6">
         <p className="text-sm uppercase tracking-[0.4em] text-zinc-400">Podcast</p>
         <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-          Temporada K
+          <span className="sr-only">Temporada K</span>
+          <div className="relative mx-auto h-16 w-40 sm:h-20 sm:w-56 lg:h-24 lg:w-72">
+            <Image
+              src="/img/logo-temporada-k.png"
+              alt="Temporada K"
+              fill
+              priority
+              sizes="(min-width: 1024px) 18rem, (min-width: 640px) 14rem, 10rem"
+              className="object-contain"
+            />
+          </div>
         </h1>
         <p className="text-lg text-zinc-300 sm:text-xl">
           Conversaciones profundas con líderes creativos y emprendedores latinoamericanos.
