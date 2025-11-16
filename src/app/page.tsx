@@ -41,7 +41,7 @@ export default function Home() {
         <Header links={NAV_LINKS} />
 
         <main className="flex flex-col gap-24 pb-12">
-          <Hero />
+          <Hero youtubeUrl={YOUTUBE_URL} spotifyUrl={SPOTIFY_URL} />
 
           <section id="youtube" className="scroll-mt-32">
             <YouTube
