@@ -1,13 +1,14 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import YouTube from "@/components/YouTube";
+import Shorts from "@/components/Shorts";
 import Spotify from "@/components/Spotify";
-import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
 
 const NAV_LINKS = [
   { href: "#hero", label: "Inicio" },
   { href: "#youtube", label: "YouTube" },
+  { href: "#shorts", label: "Shorts" },
   { href: "#spotify", label: "Spotify" },
   { href: "#contact", label: "Contacto" },
 ];
@@ -41,7 +42,7 @@ export default function Home() {
         <Header links={NAV_LINKS} />
 
         <main className="flex flex-col gap-24 pb-12">
-          <Hero />
+          <Hero youtubeUrl={YOUTUBE_URL} spotifyUrl={SPOTIFY_URL} />
 
           <section id="youtube" className="scroll-mt-32">
             <YouTube
@@ -51,16 +52,14 @@ export default function Home() {
             />
           </section>
 
+          <Shorts />
+
           <section id="spotify" className="scroll-mt-32">
             <Spotify
               embedUrl={SPOTIFY_EMBED_URL}
               showId={SPOTIFY_SHOW_ID}
               episodeId={SPOTIFY_EPISODE_ID}
             />
-          </section>
-
-          <section id="newsletter" className="scroll-mt-32">
-            <Newsletter />
           </section>
 
           <section id="contact" className="scroll-mt-32">
