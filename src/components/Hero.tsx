@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type HeroProps = {
   youtubeUrl: string;
@@ -11,20 +11,6 @@ type Slide = "community" | "episode" | "about";
 
 export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
   const [activeSlide, setActiveSlide] = useState<Slide>("community");
-
-  // cambio automático cada 10s, rotando por los 3 slides
-  useEffect(() => {
-    const values: Slide[] = ["community", "episode", "about"];
-    const interval = setInterval(() => {
-      setActiveSlide((prev) => {
-        const idx = values.indexOf(prev);
-        const nextIndex = (idx + 1) % values.length;
-        return values[nextIndex];
-      });
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section id="hero" className="scroll-mt-32">
@@ -65,7 +51,7 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
           </div>
 
           <span className="hidden text-xs text-zinc-500 sm:inline">
-            Cambia automáticamente cada 10 segundos
+            Selecciona la sección que quieras explorar
           </span>
         </div>
 
@@ -80,7 +66,7 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
                 </p>
                 <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
                   Únete a la comunidad de{" "}
-                  <span className="text-[#95D2E3]">Temporada K</span>
+                  <span className="text-[#95D31F]">Temporada K</span>
                 </h1>
                 <p className="max-w-xl text-sm text-zinc-300 sm:text-base">
                   Recibe cada semana los aprendizajes clave, recursos y episodios
@@ -95,11 +81,11 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
                     type="email"
                     required
                     placeholder="tu@email.com"
-                    className="w-full rounded-full border border-zinc-700 bg-zinc-900/70 px-4 py-3 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-[#95D2E3] focus:ring-1 focus:ring-[#95D2E3]"
+                    className="w-full rounded-full border border-zinc-700 bg-zinc-900/70 px-4 py-3 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-[#95D31F] focus:ring-1 focus:ring-[#95D31F]"
                   />
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center rounded-full bg-[#95D2E3] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#bfe7f1]"
+                    className="inline-flex items-center justify-center rounded-full bg-[#95D31F] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#bffb4b]"
                   >
                     Unirme a la newsletter
                   </button>
@@ -134,7 +120,7 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
                           Comunidad IG
                         </span>
                       </div>
-                      <span className="rounded-full bg-[#95D2E3] px-2 py-1 text-[11px] font-semibold text-black text-center">
+                      <span className="rounded-full bg-[#95D31F] px-2 py-1 text-[11px] font-semibold text-black text-center">
                         Suscríbete gratis
                       </span>
                     </div>
@@ -164,7 +150,7 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
                     href={youtubeUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/80 px-5 py-2.5 text-sm font-medium text-white transition hover:border-[#FF0000] hover:bg-zinc-900"
+                    className="inline-flex items-center justify-center rounded-full bg-[#95D31F] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-[#bffb4b]"
                   >
                     Ver en YouTube
                   </a>
@@ -172,7 +158,7 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
                     href={spotifyUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/80 px-5 py-2.5 text-sm font-medium text-white transition hover:border-[#1DB954] hover:bg-zinc-900"
+                    className="inline-flex items-center justify-center rounded-full bg-[#95D31F] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-[#bffb4b]"
                   >
                     Escuchar en Spotify
                   </a>
@@ -209,7 +195,7 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
                   SOBRE TEMPORADA K
                 </p>
                 <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-                  ¿Qué es <span className="text-[#95D2E3]">Temporada K</span>?
+                  ¿Qué es <span className="text-[#95D31F]">Temporada K</span>?
                 </h1>
                 <p className="max-w-xl text-sm text-zinc-300 sm:text-base">
                   Temporada K es el podcast de Kike donde se mezclan
@@ -228,7 +214,7 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
                     href={youtubeUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/80 px-5 py-2.5 text-sm font-medium text-white transition hover:border-[#FF0000] hover:bg-zinc-900"
+                    className="inline-flex items-center justify-center rounded-full bg-[#95D31F] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-[#bffb4b]"
                   >
                     Empezar en YouTube
                   </a>
@@ -236,7 +222,7 @@ export default function Hero({ youtubeUrl, spotifyUrl }: HeroProps) {
                     href={spotifyUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/80 px-5 py-2.5 text-sm font-medium text-white transition hover:border-[#1DB954] hover:bg-zinc-900"
+                    className="inline-flex items-center justify-center rounded-full bg-[#95D31F] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-[#bffb4b]"
                   >
                     Escuchar en Spotify
                   </a>
