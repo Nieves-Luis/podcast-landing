@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const SHORTS = [
   "MOtyhrL3rag",
   "D4k-Xiv7VXE",
@@ -50,13 +48,11 @@ export default function Shorts() {
             >
               <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-lg shadow-black/40">
                 <div className="aspect-[9/16] w-full">
-                  <Image
+                  <img
                     src={thumbnail}
                     alt={`Short ${index + 1}`}
-                    width={360}
-                    height={640}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                    sizes="160px"
+                    loading="lazy"
+                    className="h-full w-full rounded-2xl object-cover"
                   />
                 </div>
                 <span className="absolute right-3 top-3 rounded-full bg-black/80 px-2 py-0.5 text-xs font-semibold text-white">
