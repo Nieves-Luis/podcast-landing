@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <div
           className="min-h-screen bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/img/background.webp')" }}
+          style={{ backgroundImage: "url('/img/BACKGROUND.webp')" }}
         >
           {/* overlay oscuro para que todo sea legible */}
           <div className="min-h-screen">
