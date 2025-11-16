@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LogoIntro from "@/components/LogoIntro";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         >
           {/* overlay oscuro para que todo sea legible */}
           <div className="min-h-screen">
+            <LogoIntro />
             {children}
           </div>
         </div>
