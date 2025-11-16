@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import YouTube from "@/components/YouTube";
+import Shorts from "@/components/Shorts";
 import Spotify from "@/components/Spotify";
 import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
@@ -8,6 +9,7 @@ import Contact from "@/components/Contact";
 const NAV_LINKS = [
   { href: "#hero", label: "Inicio" },
   { href: "#youtube", label: "YouTube" },
+  { href: "#shorts", label: "Shorts" },
   { href: "#spotify", label: "Spotify" },
   { href: "#contact", label: "Contacto" },
 ];
@@ -50,6 +52,8 @@ export default function Home() {
               videoId={YOUTUBE_VIDEO_ID}
             />
           </section>
+
+          <Shorts />
 
           <section id="spotify" className="scroll-mt-32">
             <Spotify
