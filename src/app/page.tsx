@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import YouTube from "@/components/YouTube";
 import Shorts from "@/components/Shorts";
 import Spotify from "@/components/Spotify";
-import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
 
 const NAV_LINKS = [
@@ -61,10 +60,6 @@ export default function Home() {
               showId={SPOTIFY_SHOW_ID}
               episodeId={SPOTIFY_EPISODE_ID}
             />
-          </section>
-
-          <section id="newsletter" className="scroll-mt-32">
-            <Newsletter />
           </section>
 
           <section id="contact" className="scroll-mt-32">
